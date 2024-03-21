@@ -65,6 +65,13 @@ int main()
     ptr2->printTime();
     ptr1->printTime();
    
+   delete ptr1;
+   delete ptr2;
+
+   ptr1=NULL;
+   ptr2=NULL;
+
+
 
 
     return 0;
