@@ -1,0 +1,40 @@
+do
+{
+    cout<<"0.EXIT"<<endl;
+    cout<<"1.CAR PAY AND PASS"<<endl;
+    cout<<"2.CAR WITHOUT PAY AND PASS"<<endl;
+    cout<<"3.SHOW THE DATA "<<endl;
+    cin>>choice;
+
+
+
+ switch (choice)
+ {
+ case 0: 
+  cout<<"THANKS FOR VISITING...."<<endl;
+    break;
+ 
+case 1: 
+  c.payingCar();
+    break;
+
+case 2: 
+  c. nopayCar();
+    break;
+
+case 3: 
+  c. printOnConsole();
+    break;
+
+
+
+
+ default:
+ cout<<"PLEASE ENTER VALID OPTION"<<endl;
+    break;
+ }
+ while (choice!=0);
+}
+return 0;
+
+}
