@@ -19,6 +19,10 @@ virtual void accept(){
 // partial complete function
 //todo to accept id,title,price;
 }
+virtual double getDiscountPrice();
+
+
+
 void setPrice(double price){
   this->price=price;
 }
@@ -47,13 +51,21 @@ void accept(){
     
     cout<<"ENTER THE AUTHOR = ";
     cin>>author;
-    setPrice(getPrice()-(getPrice()*0.10));
+
+    
 
     
 //complete function by accepting author;
 //also reuse the function of Product(Base) class accept
 //give discount of 10% on price and update the price.use mutators and inspector for price
 }
+ double getDiscountPrice()
+    {
+        int price = Product::getPrice();
+        int discount = (price * 10) / 100;
+        price = price - discount;
+        return price;
+    }
 virtual void display(){
      Product::display();
     cout<<"AUTHOR = "<<author<<endl;
@@ -70,13 +82,22 @@ void accept(){
     cout<<"ENTER THE ARTIST = ";
     cin>>artist;
 
-setPrice(getPrice()-(getPrice()*0.5));
+    
 
 
 //complete function by accepting artist
 //also reuse the function of Product(Base) class accept
 //give discount of 5% on price and update the price.use mutators and inspector for price
 }
+ double getDiscountPrice()
+    {
+        int price = Product::getPrice();
+        int discount = (price * 5) / 100;
+        price = price - discount;
+        return price;
+    }
+
+
 virtual void display(){
 
 
@@ -92,12 +113,12 @@ int main()
     Product *pptr[3];
     int index = 0;
     int choice;
-    double sum = 0;
+    double totalprice = 0;
     do
     {
         cout << "0.Exit" << endl;
-        cout << "1.BUY BOOk" << endl;
-        cout << "2.BUY tape" << endl;
+        cout << "1.BUY BOOK" << endl;
+        cout << "2.BUY TAPE" << endl;
         cout << "3.DISPLAY PRODUCT" << endl;
         cout << "4.GENERATE BILL" << endl;
         cout << "ENTER YOUR CHOICE -";
@@ -106,7 +127,7 @@ int main()
         switch (choice)
         {
         case 0:
-            cout << "THANK YOU FOR VISITING SUNBEAM STORE......................................" << endl;
+            cout << "THANK YOU FOR VISITING ......................................" << endl;
             break;
         case 1:
             if (index < 3)
@@ -136,21 +157,32 @@ int main()
             }
             break;
         case 4:
-            if ()
+             if (index != 0)
             {
+                {
+                    int i;
+                    cout << "\t\t" << "---------BILL---------------" << endl;
+                    for (i = 0; i < index; i++)
+                    {
+                    totalprice = totalprice + pptr[i]->getDiscountPrice();
+                    }
+                }
+                cout << "\t\t"<< "Total BILL:-" << totalprice<< endl;
             }
-            
-            
             else
             cout<<"PRODUCTS ARE NOT ADDED IN AAREY............"<<endl;
             break;
         default:
-            break;
+            break;for (int i = 0; i < index; i++)
+            {
+                pptr[i]->display();
+            }
         }
     } while (choice != 0);
     for(int i=0; i<index; i++)
     {
         delete  pptr[i];
+        pptr[i]=NULL;
     }
 
 

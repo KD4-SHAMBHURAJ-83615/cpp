@@ -177,7 +177,8 @@ SalesManager(){
 
 }
 
-SalesManager(int id , double salary,double commission,double bonus){
+SalesManager(int id , double salary,double commission,double bonus)
+{
 
 }
 
